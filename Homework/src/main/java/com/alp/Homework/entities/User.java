@@ -8,7 +8,7 @@ import java.sql.Date;
 
 @Entity
 @Data
-@Table(name = "users")
+@Table(name = "USR_USER")
 public class User {
     private @Id
     @GeneratedValue

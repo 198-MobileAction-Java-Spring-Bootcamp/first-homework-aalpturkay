@@ -8,6 +8,7 @@ import java.sql.Date;
 import java.time.Instant;
 
 @Entity
+@Table(name = "COM_COMMENT")
 @Data
 public class Comment {
     private @Id
@@ -19,7 +20,8 @@ public class Comment {
     @CreatedDate
     private Instant createdAt;
     private Long productId;
-    @ManyToOne(targetEntity = User.class)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_USR_USER")
     private User user;
 
 }

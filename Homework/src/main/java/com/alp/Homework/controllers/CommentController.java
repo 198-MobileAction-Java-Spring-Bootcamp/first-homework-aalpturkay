@@ -52,7 +52,7 @@ public class CommentController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public ResponseEntity<Comment> updateComment(@PathVariable Long id, @RequestBody CommentUpdatingDto dto) {
         Optional<Comment> optionalComment = commentRepository.findById(id);
         if (optionalComment.isPresent()) {
@@ -61,7 +61,7 @@ public class CommentController {
             commentRepository.save(comment);
             return new ResponseEntity<>(comment, HttpStatus.OK);
         }
-        
+
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
